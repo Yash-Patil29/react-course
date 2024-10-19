@@ -50,7 +50,7 @@
       <div className="container" style={themeStyles}>
           <h1>{props.heading}</h1>
         <div className="form-group">
-          <textarea className="form-control" value={text} onChange={handleonchange} id="mybox" rows="10"></textarea>
+          <textarea className="form-control" value={text} onChange={handleonchange} style={themeStyles} id="mybox" rows="10"></textarea>
         </div>
         <button className='btn btn-primary mx-3'onClick={handleUpClick}style={ButtonStyles}>Convert to Uppercase </button>
         <button className='btn btn-primary mx-3'onClick={handleLoClick}style={ButtonStyles}>Convert to Lowercase </button>
@@ -62,7 +62,7 @@
         <p> {text.split(" ").length } word {text.length } character</p>
         <p>{0.008*text.split(" ").length} Minutes to read </p>
         <h2>Preview</h2>
-        <p>{text}</p>
+        <p>{text.length>0?text:"Enter something to preview here"}</p>
       </div>
       <button
           type="button"
