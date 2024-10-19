@@ -11,10 +11,21 @@ export default function TextFrom(props) {
         settext(newtext)
     }
     const handleLoClick=()=>{
-      // console.log("Upper case was clicked: " + text);
+      // console.log("Lower case was clicked: " + text);
       let newtext=text.toLowerCase();
       settext(newtext)
-  }
+    }
+    const handleClearClick=()=>{
+      // console.log("Clear was clicked: " + text);
+      let newtext='';
+      settext(newtext)
+    }
+    const handleCopyClick=()=>{
+      // console.log("Clear was clicked: " + text);
+      var text=document.getElementById("mybox");
+      text.select();
+      navigator.clipboard.writeText(text.value);
+    }
     const handleonchange=(event)=>{
         // console.log("on change handle");
         settext(event.target.value);
@@ -29,6 +40,8 @@ export default function TextFrom(props) {
       </div>
       <button className='btn btn-primary mx-3'onClick={handleUpClick}>Convert to Uppercase </button>
       <button className='btn btn-primary mx-3'onClick={handleLoClick}>Convert to Lowercase </button>
+      <button className='btn btn-primary mx-3'onClick={handleClearClick}>Clear text </button>
+      <button className='btn btn-primary mx-3'onClick={handleCopyClick}>Copy text </button>
     </div>
     <div className="container my-2">
       <h1>Your text summary</h1>
