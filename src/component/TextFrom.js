@@ -1,5 +1,5 @@
   import React,{useState} from 'react'
-  import PropTypes from 'prop-types'
+  // import PropTypes from 'prop-types'
 
 
 
@@ -12,22 +12,26 @@
           // console.log("Upper case was clicked: " + text);
           let newtext=text.toUpperCase();
           settext(newtext)
+          props.showAlert("Converted to Uppercase!", "success");
       }
       const handleLoClick=()=>{
         // console.log("Lower case was clicked: " + text);
         let newtext=text.toLowerCase();
         settext(newtext)
+        props.showAlert("Converted to Lowercase!","success");
       }
       const handleClearClick=()=>{
         // console.log("Clear was clicked: " + text);
         let newtext='';
         settext(newtext)
+        props.showAlert("Text has been cleared", "success");
       }
       const handleCopyClick=()=>{
         // console.log("Copy was clicked: " + text);
         var text=document.getElementById("mybox");
         text.select();
         navigator.clipboard.writeText(text.value);
+        props.showAlert("Text has been copied!", "success");
       }
       const handleonchange=(event)=>{
           // console.log("on change handle");
