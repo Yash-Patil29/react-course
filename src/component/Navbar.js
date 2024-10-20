@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 
 export default function Navbar(props) {
   return (
     <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
-  <a className={`navbar-brand ${props.mode === 'light' ? 'text-dark' : 'text-light'}`} href="/">{props.title}</a>
+  <Link className={`navbar-brand ${props.mode === 'light' ? 'text-dark' : 'text-light'}`} to="/">{props.title}</Link>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
@@ -13,10 +14,10 @@ export default function Navbar(props) {
   <div className="collapse navbar-collapse " id="navbarSupportedContent">
     <ul className="navbar-nav mr-auto">
       <li className="nav-item active">
-        <a className={`nav-link ${props.mode === 'light' ? 'text-dark' : 'text-light'}`} href="/">Home <span className="sr-only">(current)</span></a>
+        <Link className={`nav-link ${props.mode === 'light' ? 'text-dark' : 'text-light'}`} to="/">Home <span className="sr-only">(current)</span></Link>
       </li>
       <li className="nav-item ">
-        <a className={`nav-link ${props.mode === 'light' ? 'text-dark' : 'text-light'}`} href="/">{props.about}</a>
+        <Link className={`nav-link ${props.mode === 'light' ? 'text-dark' : 'text-light'}`} to="/about">{props.about}</Link>
       </li>
       
     </ul>

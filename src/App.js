@@ -3,6 +3,13 @@ import './App.css';
 import Navbar from './component/Navbar';
 import TextFrom from './component/TextFrom';
 import Alert from './component/Alert';
+import About from './component/About';
+import {
+  BrowserRouter as Router,
+  Routes, // <-- Use Routes instead of Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 
   function App() {
@@ -35,12 +42,18 @@ import Alert from './component/Alert';
     }
     return (
       <>
-        <Navbar title ="TextUtils" mode={mode} toggleMode={toggleMode} about="About text"></Navbar>
-        {/*<Navbar></Navbar>*/}
-        <Alert alert={alert}></Alert>
-        <div className="container my-3">
-        <TextFrom showAlert={showAlert} heading="Enter the text to analyze below" />
-        </div>
+        <Router>
+          <Navbar title ="TextUtils" mode={mode} toggleMode={toggleMode} about="About"></Navbar>
+          {/*<Navbar></Navbar>*/}
+          <Alert alert={alert}></Alert>
+          <div className="container my-3">
+            <Routes>
+            <Route path="/about" element={<About />} /> {/* <-- Use element prop */}
+            <Route path="/" element={<TextFrom showAlert={showAlert} heading="Enter the text to analyze below" />} />
+            </Routes>
+          {/* <About></About> */}
+          </div>
+        </Router>
       </>
     );
 
