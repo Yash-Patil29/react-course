@@ -8,7 +8,7 @@ import {
   BrowserRouter as Router,
   Routes, // <-- Use Routes instead of Switch,
   Route,
-  Link
+  // Link
 } from "react-router-dom";
 
 
@@ -32,12 +32,12 @@ import {
       if (mode==='light'){
       setMode('dark')
       document.body.style.backgroundColor='grey';
-      showAlert("Dark moode has been enable","success");
+      showAlert("Dark mode has been enable","success");
     }
       else{
         setMode('light')
         document.body.style.backgroundColor='white';
-        showAlert("light moode has been enable","success");
+        showAlert("light mode has been enable","success");
       }
     }
     return (
@@ -48,8 +48,8 @@ import {
           <Alert alert={alert}></Alert>
           <div className="container my-3">
             <Routes>
-            <Route path="/about" element={<About />} /> {/* <-- Use element prop */}
-            <Route path="/" element={<TextFrom showAlert={showAlert} heading="Enter the text to analyze below" />} />
+            <Route path="/about" element={<About mode={mode} />} /> {/* <-- Use element prop */}
+            <Route path="/" element={<TextFrom showAlert={showAlert} heading="Enter the text to analyze below" mode={mode} />} />
             </Routes>
           {/* <About></About> */}
           </div>
